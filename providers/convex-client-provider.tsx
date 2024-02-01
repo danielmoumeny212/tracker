@@ -1,3 +1,4 @@
+"use client"
 import { Loading } from "@/components/auth/loading";
 import { ClerkProvider, useAuth } from "@clerk/nextjs";
 import {
