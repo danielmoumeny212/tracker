@@ -1,17 +1,19 @@
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
-import { BarChartIcon, CircleIcon, ClockIcon, CogIcon, CreditCardIcon, DotIcon, FolderIcon, ReceiptIcon, UsersIcon } from 'lucide-react';
+import { BarChartIcon, CircleIcon, ClockIcon, CogIcon, CreditCardIcon, DotIcon, FolderIcon, ReceiptIcon, UserRound, UsersIcon, UsersRoundIcon, Warehouse } from 'lucide-react';
+import Link from 'next/link';
 import React from 'react';
 
 const Sidebar = () => {
   const sidebarItems = [
-    { icon: ClockIcon, text: 'Time' },
-    { icon: CreditCardIcon, text: 'Expenses' },
-    { icon: FolderIcon, text: 'Projects' },
-    { icon: UsersIcon, text: 'Team' },
-    { icon: BarChartIcon, text: 'Reports' },
-    { icon: ReceiptIcon, text: 'Invoices' },
-    { icon: CogIcon, text: 'Manage' },
+    { icon:  Warehouse, text: 'Dashboard' , href: "/admin"},
+    { icon: BarChartIcon, text: 'Analytics' , href: "/analytics"},
+    { icon: ClockIcon, text: 'Time' , href: "/track"},
+    { icon: FolderIcon, text: 'Projects' , href: "/project"},
+    { icon: CreditCardIcon, text: 'Expenses' , href: "/expenses"},
+    { icon: UsersIcon, text: 'Team' , href: "/team"},
+    { icon: ReceiptIcon, text: 'Invoices' , href: "/invoices"},
+    { icon: UsersRoundIcon, text: 'Clients' , href: "/clients"},
   ];
 
   // const pinnedItems = [
@@ -33,10 +35,10 @@ const Sidebar = () => {
         <ul className="space-y-2 ">
           {sidebarItems.map((item, index) => (
             <li key={index}>
-              <a className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-blue-500" href="#">
+              <Link className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-blue-500" href={item.href}>
                 {<item.icon className="h-5 w-5" />}
                 <span>{item.text}</span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -52,10 +54,10 @@ const Sidebar = () => {
           <Switch id="dark-mode" />
           <Label htmlFor="dark-mode">Dark mode</Label>
         </div>
-        <a className="mt-4 flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-blue-500" href="#">
+        <Link className="mt-4 flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-blue-500" href="/settings">
           <CogIcon className="h-5 w-5" />
           <span>Settings</span>
-        </a>
+        </Link>
         <a className="mt-2 flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-blue-500" href="#">
           <CircleIcon className="h-5 w-5" />
           <span>Help center</span>
